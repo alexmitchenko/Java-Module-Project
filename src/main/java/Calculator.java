@@ -16,7 +16,8 @@ public class Calculator {
         double totalPrice = getTotalPrice();
         System.out.printf("Общая сумма: %.2f %s%n", totalPrice, setRoubleCase(totalPrice));
         System.out.printf("Количество человек: %s%n", peopleCount);
-        System.out.printf("Каждый должен заплатить: %.2f %s%n", getShareRatio(totalPrice, peopleCount), setRoubleCase(totalPrice));
+        double shareRatio = getShareRatio(totalPrice, peopleCount);
+        System.out.printf("Каждый должен заплатить: %.2f %s%n", shareRatio, setRoubleCase(shareRatio));
     }
 
     public static void printGoods() {
@@ -35,23 +36,22 @@ public class Calculator {
         return totalPrice;
     }
 
-    public static double getShareRatio(double totalPrice, int totalShare) {
-        return totalPrice / totalShare;
+    public static double getShareRatio(double totalPrice, double peopleCount) {
+        return totalPrice / peopleCount;
     }
 
     private static String setRoubleCase(double d) {
+
         int n1 = (int) d % 100;
-        int n2 = (n1 % 10);
+        int n2 = n1 % 10;
+
         if (n1 > 10 && n1 < 20) {
             return "рублей";
-        } else
-        if (n2 > 1 && n2 < 5) {
+        }else if (n2 > 1 && n2 < 5) {
             return "рубля";
-        } else
-        if (n2 == 1) {
+        }else if (n2 == 1) {
             return "рубль";
-        } else
+        }else
             return "рублей";
     }
-
 }

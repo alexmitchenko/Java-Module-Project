@@ -23,12 +23,10 @@ public class Main {
                 if (input >= 2) {
                     peopleCount = input;
                     break;
-                }
-                else {
+                } else {
                     System.out.print("Ошибка: неверный ввод!\n");
                 }
-            }
-            else {
+            } else {
                 System.out.print("Ошибка: неверный ввод!\n");
                 scanner.next();
             }
